@@ -1,0 +1,75 @@
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 2fr;
+    padding: 0 0 0 200px;
+    height: 7vh;
+    background-color: #3b5249;
+    color: #a4b494;
+    font-weight: 600;
+    font-size: 18px;
+    align-items: center;
+    justify-items: center;
+    .logo {
+        img {
+            height: 35px;
+            width: 35px;
+        }
+    }
+    .iconos {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        width: 80%;
+        font-size: 30px;
+        .facebook {
+            color: #4267B2;
+        }
+        .twitter {
+            color: #00acee;
+        }
+        .instagram {
+            color: #c32aa3;
+        }
+        fa-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin: 0 13px 0 13px;
+            height: 100%;
+            width: 40px;
+            transition: font-size 0.25s;
+        }
+        .facebook:hover {
+            font-size: 37px;
+        }
+        .twitter:hover {
+            font-size: 37px;
+        }
+        .instagram:hover {
+            font-size: 37px;
+        }
+    }
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        transition: background-color 0.55s;
+    }
+    .option:hover {
+        background-color: #96bb7c;
+        color: #364547;
+    }
+    .activo {
+        color: #364547;
+        background-color: #96bb7c;
+    }
+    .btn-login {
+        button {
+            width: 100px;
+        }
+    }
+}
