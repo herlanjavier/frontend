@@ -14,7 +14,17 @@ export class NavbarComponent implements OnInit {
   public facebookIcon = faFacebook;
   public twitterIcon = faTwitter;
   public instagramIcon = faInstagram;
-  constructor() {}
+
+  public isLogged: boolean;
+  public userName: string | null = '';
+  constructor() {
+    this.userName = localStorage.getItem('userName');
+    this.isLogged = this.userName ? true : false;
+  }
 
   ngOnInit(): void {}
+
+  salir(): void {
+    localStorage.setItem('userName', '');
+  }
 }

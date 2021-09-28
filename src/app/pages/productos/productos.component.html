@@ -1,1 +1,9 @@
-<p>productos works!</p>
+<article class="productos-container">
+    <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
+        <fa-icon [icon]="pillIcon"></fa-icon>
+        <label class="title">{{ medicamento.nombre_generico }}</label>
+        <label>Precio: {{ medicamento.precio }} Bs</label>
+        <label>Nombre: {{ medicamento.nombre }}</label>
+        <label>Laboratorio: {{ medicamento.laboratorio }}</label>
+    </section>
+</article>

@@ -10,4 +10,5 @@ export class AppComponent {
   link = 'https://www.youtube.com';
 
   title = 'servifarma';
+  constructor() {}
 }

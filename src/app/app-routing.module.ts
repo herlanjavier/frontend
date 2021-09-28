@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ServicioComponent } from './pages/servicio/servicio.component';
-import { OfertaComponent } from './pages/oferta/oferta.component';
-import { ConsultasComponent } from './pages/consultas/consultas.component';
-import { ProductosComponent } from './pages/productos/productos.component';
-import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
-  { path: 'servicio', component: ServicioComponent },
-  { path: 'oferta', component: OfertaComponent },
-  { path: 'producto', component: ProductosComponent },
-  { path: 'consulta', component: ConsultasComponent },
-  { path: 'registro', component: RegistroComponent },
+  {
+    path: 'public',
+    loadChildren: () =>
+      import('./public/public.module').then((m) => m.PublicModule),
+  },
+  {
+    path: 'secure',
+    loadChildren: () =>
+      import('./secure/secure.module').then((m) => m.SecureModule),
+  },
   {
     path: '**',
+    redirectTo: 'public',
     pathMatch: 'full',
-    redirectTo: 'servicio',
   },
 ];
 
