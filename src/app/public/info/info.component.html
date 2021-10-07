@@ -1,0 +1,49 @@
+<section class="info-content">
+  <div class="info" routerLink="products">
+    <fa-icon class="products-icon" [icon]="capsulesIcon"></fa-icon>
+
+    <h3>Productos</h3>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
+      ipsum modi, doloremque sapiente similique optio cupiditate magnam,
+      tenetur quis quidem voluptatum, nobis suscipit. Aliquid consectetur
+      repellat quod minus eos! Tempora.
+    </p>
+  </div>
+
+  <div class="info" routerLink="mapa">
+    <fa-icon class="map-icon" [icon]="mapIcon"></fa-icon>
+
+    <h3>Ubicacion</h3>
+
+    <p>
+      Información sobre tus problemas de salud, control periódico de tus
+      tratamientos, seguimiento del embarazo y mucho más.
+    </p>
+  </div>
+
+  <div class="info" *ngIf="!botActive" (click)="activeBot()">
+    <fa-icon class="robot-icon" [icon]="robotIcon"></fa-icon>
+
+    <h3>Consultas</h3>
+
+    <p>
+      ¿Tienes dudas sobre nuestros productos, precios, ubicacion, horarios de atencion, etc?
+      Yo respondere tus dudas 😉 😉
+    </p>
+  </div>
+
+  <div class="chat" *ngIf="botActive">
+    <fa-icon [icon]="exitIcon" (click)="activeBot()"></fa-icon>
+    <section class="msg-content">
+      <label class="text" *ngFor="let msg of listaMensajes">{{msg.texto}}</label>
+    </section>
+
+    <section class="msg-input">
+      <input type="text" (keyup.enter)="enviarMensaje()" [(ngModel)]="mensaje">
+
+      <fa-icon></fa-icon>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+.inventario-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100vw - 300px);
+  height: 100%;
+
+  .create-inventario {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 90%;
+    justify-content: flex-end;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      cursor: pointer;
+
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .inventario-data {
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    width: 90%;
+    height: 500px;
+    overflow-y: auto;
+  }
+
+  .table-header {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 2fr);
+    align-items: center;
+    height: 80px;
+    width: 100%;
+
+    label {
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #2C394B;
+    }
+  }
+
+  .table-content {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 2fr);
+    justify-items: center;
+    position: relative;
+    animation: intro 0.5s ease-in;
+
+    .options {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  }
+
+  .userAction {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+    height: 80px;
+    width: 90%;
+    margin: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 20px;
+
+    input {
+      border: none;
+      width: 200px;
+      padding-left: 10px;
+    }
+
+    button {
+      height: 50px;
+      margin-right: 20px;
+    }
+  }
+}
+
+@keyframes intro {
+  from {
+    opacity: 0.5;
+    top: -10px;
+  }
+
+  to {
+    top: 0;
+  }
+
+}

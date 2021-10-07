@@ -1,0 +1,90 @@
+.public-container {
+  background: #e8e8e8;
+  font-family: Inconsolata, serif;
+  font-size: 1em;
+  width: 100%;
+
+  .welcome-content {
+    background-image: url("./../../assets/img/pharmacy.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    .admin-access {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      height: 60px;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border: none;
+        background: #334756;
+        color: #e8e8e8;
+        height: 40px;
+        width: 120px;
+        margin-right: 20px;
+        border-radius: 8px;
+        font-size: 1.2em;
+
+        label {
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    h1 {
+      font-size: 4em;
+      color: #334756;
+    }
+
+    .main-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.4em;
+      height: 350px;
+      width: 550px;
+      text-align: center;
+    }
+
+    .main-button {
+      border: none;
+      background: #22577A;
+      color: #e8e8e8;
+      height: 50px;
+      width: 130px;
+      margin-right: 20px;
+      border-radius: 8px;
+      font-size: 1.2em;
+    }
+  }
+
+  .menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+  }
+
+  .footer-content {
+    background: #2a2e28;
+    height: 20vh;
+  }
+}

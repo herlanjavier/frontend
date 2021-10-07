@@ -1,0 +1,35 @@
+<article class="secure-container">
+  <section class="secure-menu">
+    <button class="atras" routerLink="public">
+      <fa-icon [icon]="iconBack"></fa-icon>
+    </button>
+
+    <div class="secure-item" routerLink="usuarios">
+      <fa-icon [icon]="iconUser"></fa-icon>
+
+      <label>Usuarios</label>
+    </div>
+
+    <div class="secure-item" routerLink="ventas">
+      <fa-icon [icon]="iconVenta"></fa-icon>
+
+      <label>Ventas</label>
+    </div>
+
+    <div class="secure-item" routerLink="reservas">
+      <fa-icon [icon]="iconReserva"></fa-icon>
+
+      <label>Reservas</label>
+    </div>
+
+    <div class="secure-item" routerLink="inventario">
+      <fa-icon [icon]="iconInventario"></fa-icon>
+
+      <label>Inventario</label>
+    </div>
+  </section>
+
+  <section class="secure-content">
+    <router-outlet></router-outlet>
+  </section>
+</article>

@@ -1,1 +1,33 @@
-<article class="public-content"></article>
+<article class="public-container">
+  <section class="welcome-content">
+    <div class="admin-access">
+      <button routerLink="../secure">
+        <fa-icon [icon]="userIcon"></fa-icon>
+
+        <label>Admin</label>
+      </button>
+    </div>
+
+    <section class="main-content">
+      <h1>Bienvenido a SERVIFARMA</h1>
+
+      <section class="main-text">
+        <label>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium culpa cum delectus deleniti est,
+          exercitationem id laudantium perferendis recusandae sint veniam, veritatis vero voluptatem? Aliquid autem
+          possimus quisquam vitae voluptatem.
+        </label>
+
+        <button class="main-button" (click)="scrollDown()">Empezar</button>
+      </section>
+    </section>
+  </section>
+
+  <section class="menu-content">
+    <router-outlet></router-outlet>
+  </section>
+
+  <section class="footer-content">
+    hola
+  </section>
+</article>

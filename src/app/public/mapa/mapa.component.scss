@@ -1,0 +1,29 @@
+.location-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 95vw;
+  animation: fade-in 1s ease-in;
+
+  fa-icon {
+    font-size: 5em;
+    color: #B61919;
+    cursor: pointer;
+  }
+
+  #mapMapbox {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

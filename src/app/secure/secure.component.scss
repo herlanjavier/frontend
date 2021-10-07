@@ -1,0 +1,46 @@
+.secure-container {
+  display: flex;
+  font-family: Inconsolata, serif;
+  font-size: 1.2em;
+  background: #e8e8e8;
+
+  .secure-menu {
+    background: #334756;
+    height: 100vh;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+
+    .atras{
+      background: none;
+      height: 80px;
+      border: none;
+      color: #e8e8e8;
+      font-size: 1.5em;
+      width: 90%;
+      display: flex;
+      justify-content: flex-start;
+      outline: none;
+    }
+
+    .secure-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      height: 60px;
+      background: #2C394B;
+      width: 100%;
+      color: #e8e8e8;
+
+      fa-icon{
+        padding-left: 30px;
+      }
+
+      &:hover {
+        background: #4267B2;
+      }
+    }
+  }
+}

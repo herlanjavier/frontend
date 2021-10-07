@@ -1,0 +1,79 @@
+<article class="user-container">
+  <section class="create-user">
+    <button class="btn btn-success" (click)="agregarView()">
+      <label>Agregar usuario</label>
+    </button>
+  </section>
+
+  <section class="userAction" *ngIf="inputView">
+    <div>
+      <label>Nombre: </label>
+
+      <input type="text" [(ngModel)]="user.nombre">
+    </div>
+
+    <div>
+      <label>Ap. Paterno: </label>
+
+      <input type="text" [(ngModel)]="user.paterno">
+    </div>
+
+    <div>
+      <label>Ap. Materno: </label>
+
+      <input type="text" [(ngModel)]="user.materno">
+    </div>
+
+    <div>
+      <label>Correo: </label>
+
+      <input type="text" [(ngModel)]="user.email">
+    </div>
+
+    <button class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
+      <fa-icon [icon]="createIcon"></fa-icon>
+    </button>
+
+    <button class="btn btn-info" (click)="editar()" *ngIf="updateBtn">
+      <fa-icon [icon]="updateIcon"></fa-icon>
+    </button>
+  </section>
+
+  <section class="user-data">
+    <div class="table-header">
+      <label>Id</label>
+
+      <label>Nombre</label>
+
+      <label>Paterno</label>
+
+      <label>Materno</label>
+
+      <label>Correo</label>
+
+      <label>Opciones</label>
+    </div>
+
+    <div class="table-content" *ngFor="let user of usuarios; let i=index">
+      <label>{{i + 1}}</label>
+
+      <label>{{user.nombre}}</label>
+
+      <label>{{user.paterno}}</label>
+
+      <label>{{user.materno}}</label>
+
+      <label>{{user.email}}</label>
+
+      <label class="options">
+        <button class="btn btn-warning" (click)="editarView(user)">
+          <fa-icon [icon]="updateIcon"></fa-icon>
+        </button>
+
+        <button class="btn btn-danger" (click)="eliminar(user)">
+          <fa-icon [icon]="delIcon"></fa-icon>
+        </button>
+      </label>
+    </div>
+  </section>
+</article>
