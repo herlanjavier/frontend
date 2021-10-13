@@ -1,7 +1,11 @@
 <article class="public-container">
   <section class="welcome-content">
     <div class="admin-access">
-      <button routerLink="../secure">
+      <input [(ngModel)]="userName" placeholder="Nombre" type="text">
+
+      <input type="password" placeholder="Contraseña" [(ngModel)]="password">
+
+      <button (click)="login()">
         <fa-icon [icon]="userIcon"></fa-icon>
 
         <label>Admin</label>
@@ -28,6 +32,21 @@
   </section>
 
   <section class="footer-content">
-    hola
+    <div class="footer-text">
+      <div class="icons">
+        <fa-icon [icon]="facebookIcon"></fa-icon>
+        <fa-icon [icon]="twitterIcon"></fa-icon>
+        <fa-icon [icon]="whatsappIcon"></fa-icon>
+      </div>
+
+      <label>
+        Av. siempre viva, Calle #2, #423 en plena esquina. Cel: 1235123
+      </label>
+    </div>
+    <label>
+      &copy; Derechos Reservados 2021
+    </label>
+    <div>
+    </div>
   </section>
 </article>
