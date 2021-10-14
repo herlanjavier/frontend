@@ -1,1 +1,33 @@
-<p>reservas works!</p>
+<article class="reserva-container">
+  <label class="reserva-title">RESERVAS</label>
+
+  <section class="reserva-content">
+    <div class="reserva-card" *ngFor="let reserva of reservas">
+      <div>
+        <label class="title">Nombre: </label>
+
+        <label>{{reserva.usuario|titlecase}}</label>
+      </div>
+
+      <label class="title">Producto</label>
+
+      <div class="reserva-producto" *ngFor="let producto of reserva.products">
+        <label>{{producto.product}}</label>
+
+        <label>{{producto.cantidad}}</label>
+      </div>
+
+      <div>
+        <label class="title">Fecha: </label>
+
+        <label> {{reserva.fecha}}</label>
+      </div>
+
+      <div>
+        <button class="btn btn-danger" *ngIf="!reserva.entregado" (click)="entregar(reserva)">Entregar</button>
+
+        <label class="text-pendiente" *ngIf="reserva.entregado">Entregado</label>
+      </div>
+    </div>
+  </section>
+</article>

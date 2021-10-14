@@ -13,7 +13,7 @@
     align-items: center;
     padding-top: 30px;
 
-    .atras{
+    .atras {
       background: none;
       height: 80px;
       border: none;
@@ -34,7 +34,7 @@
       width: 100%;
       color: #e8e8e8;
 
-      fa-icon{
+      fa-icon {
         padding-left: 30px;
       }
 
@@ -42,5 +42,15 @@
         background: #4267B2;
       }
     }
+
+    .active {
+      background: #4267B2;
+    }
+  }
+
+  .secure-content {
+    width: 100%;
   }
 }
+
+
