@@ -1,13 +1,27 @@
 <main class="products-content">
-  <label>PRODUCTOS</label>
+    <div class="products-header">
+        <label class="title">PRODUCTOS</label>
 
-  <article class="productos-container">
-    <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
-      <fa-icon [icon]="pillIcon"></fa-icon>
-      <label class="title">{{ medicamento.nombre_generico }}</label>
-      <label>Precio: {{ medicamento.precio }} Bs</label>
-      <label>Nombre: {{ medicamento.nombre }}</label>
-      <label>Laboratorio: {{ medicamento.laboratorio }}</label>
-    </section>
-  </article>
+        <input type="text" [(ngModel)]="item" (keyUp.enter)="buscar()" />
+    </div>
+
+    <article class="productos-container" *ngIf="item === ''">
+        <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
+            <fa-icon [icon]="pillIcon"></fa-icon>
+            <label class="title">{{ medicamento.nombre_generico }}</label>
+            <label>Precio: {{ medicamento.precio }} Bs</label>
+            <label>Tipo: {{ medicamento.tipo }}</label>
+            <label>Laboratorio: {{ medicamento.laboratorio }}</label>
+        </section>
+    </article>
+
+    <article class="productos-container" *ngIf="item !== ''">
+        <section class="medicamento-card" *ngFor="let medicamento of searchMedicamentos">
+            <fa-icon [icon]="pillIcon"></fa-icon>
+            <label class="title">{{ medicamento.nombre_generico }}</label>
+            <label>Precio: {{ medicamento.precio }} Bs</label>
+            <label>Tipo: {{ medicamento.tipo }}</label>
+            <label>Laboratorio: {{ medicamento.laboratorio }}</label>
+        </section>
+    </article>
 </main>
