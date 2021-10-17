@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MedicamentoService} from '../../services/medicamento.service';
+import {Medicamento} from '../../integration/interfaces/medicamento.interface';
 
 @Component({
   selector: 'app-inventario',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventario.component.scss']
 })
 export class InventarioComponent implements OnInit {
+  public medicamentos: Medicamento[] = [];
 
-  constructor() { }
+  constructor(private medicamentoService: MedicamentoService) {
+    this.medicamentoService.getMedicamentos().subscribe(res => {
+      this.medicamentos = [...res];
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -1,27 +1,35 @@
 <main class="products-content">
-    <div class="products-header">
-        <label class="title">PRODUCTOS</label>
+  <div class="products-header">
+    <fa-icon [icon]="backIcon" routerLink="public"></fa-icon>
 
-        <input type="text" [(ngModel)]="item" (keyUp.enter)="buscar()" />
-    </div>
+    <label class="title">PRODUCTOS</label>
 
-    <article class="productos-container" *ngIf="item === ''">
-        <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
-            <fa-icon [icon]="pillIcon"></fa-icon>
-            <label class="title">{{ medicamento.nombre_generico }}</label>
-            <label>Precio: {{ medicamento.precio }} Bs</label>
-            <label>Tipo: {{ medicamento.tipo }}</label>
-            <label>Laboratorio: {{ medicamento.laboratorio }}</label>
-        </section>
-    </article>
+    <input type="text" [(ngModel)]="item" (keyup.enter)="buscar()"/>
 
-    <article class="productos-container" *ngIf="item !== ''">
-        <section class="medicamento-card" *ngFor="let medicamento of searchMedicamentos">
-            <fa-icon [icon]="pillIcon"></fa-icon>
-            <label class="title">{{ medicamento.nombre_generico }}</label>
-            <label>Precio: {{ medicamento.precio }} Bs</label>
-            <label>Tipo: {{ medicamento.tipo }}</label>
-            <label>Laboratorio: {{ medicamento.laboratorio }}</label>
-        </section>
-    </article>
+    <button class="btn btn-warning" routerLink='../shop'>
+      <label>0</label>
+
+      <fa-icon [icon]="shopIcon"></fa-icon>
+    </button>
+  </div>
+
+  <article class="productos-container" *ngIf="item === ''">
+    <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
+      <fa-icon [icon]="pillIcon"></fa-icon>
+      <label class="title">{{ medicamento.nombre_generico }}</label>
+      <label>Precio: {{ medicamento.precio }} Bs</label>
+      <label>Tipo: {{ medicamento.tipo }}</label>
+      <label>Laboratorio: {{ medicamento.laboratorio }}</label>
+    </section>
+  </article>
+
+  <article class="productos-container" *ngIf="item !== ''">
+    <section class="medicamento-card" *ngFor="let medicamento of searchMedicamentos">
+      <fa-icon [icon]="pillIcon"></fa-icon>
+      <label class="title">{{ medicamento.nombre_generico }}</label>
+      <label>Precio: {{ medicamento.precio }} Bs</label>
+      <label>Tipo: {{ medicamento.tipo }}</label>
+      <label>Laboratorio: {{ medicamento.laboratorio }}</label>
+    </section>
+  </article>
 </main>

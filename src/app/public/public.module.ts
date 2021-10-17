@@ -7,19 +7,23 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MapaComponent} from './mapa/mapa.component';
 import {InfoComponent} from './info/info.component';
 import {FormsModule} from '@angular/forms';
+import { ShopComponent } from './shop/shop.component';
+import {StripeModule} from 'stripe-angular';
 
 
 @NgModule({
   declarations: [
     PublicComponent,
     MapaComponent,
-    InfoComponent
+    InfoComponent,
+    ShopComponent
   ],
   imports: [
     CommonModule,
     PublicRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    StripeModule.forRoot('')
   ],
 
 })

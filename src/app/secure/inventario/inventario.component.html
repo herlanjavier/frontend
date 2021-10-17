@@ -12,8 +12,6 @@
 
     <input type="text" placeholder="dosis">
 
-    <input type="text" placeholder="fecha vencimiento">
-
     <input type="text" placeholder="descripcion">
   </section>
 
@@ -31,13 +29,25 @@
 
       <label>Dosis</label>
 
-      <label>Fecha de Vencimiento</label>
-
       <label>Descripcion</label>
     </div>
 
-    <div class="content">
+    <section class="content">
+      <div class="medicamento" *ngFor="let medicamento of medicamentos">
+        <label>{{medicamento.nombre_generico}}</label>
 
-    </div>
+        <label>{{medicamento.laboratorio}}</label>
+
+        <label>{{medicamento.medida}}</label>
+
+        <label>{{medicamento.tipo}}</label>
+
+        <label>{{medicamento.precio}}</label>
+
+        <label>{{medicamento.dosis}}</label>
+
+        <label>{{medicamento.descripcion|lowercase}}</label>
+      </div>
+    </section>
   </section>
 </article>
