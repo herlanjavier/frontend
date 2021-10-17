@@ -1,79 +1,79 @@
 <article class="inventario-container">
-  <section class="create-inventario">
-    <button class="btn btn-success" (click)="agregarView()">
+    <section class="create-inventario">
+        <button class="btn btn-success" (click)="agregarView()">
       <label>Agregar medicamento</label>
     </button>
-  </section>
+    </section>
 
-  <section class="userAction" *ngIf="inputView">
-    <div>
-      <label>Nombre: </label>
+    <section class="userAction" *ngIf="inputView">
+        <div>
+            <label>Nombre: </label>
 
-      <input type="text" [(ngModel)]="medicamento.nombre">
-    </div>
+            <input type="text" [(ngModel)]="medicamento.nombre" />
+        </div>
 
-    <div>
-      <label>Laboratorio: </label>
+        <div>
+            <label>Fecha: </label>
 
-      <input type="text" [(ngModel)]="medicamento.laboratorio">
-    </div>
+            <input type="text" [(ngModel)]="medicamento.laboratorio" />
+        </div>
 
-    <div>
-      <label>Medida: </label>
+        <div>
+            <label>Cantidad: </label>
 
-      <input type="text" [(ngModel)]="medicamento.medida">
-    </div>
+            <input type="text" [(ngModel)]="medicamento.medida" />
+        </div>
 
-    <div>
-      <label>Tipo: </label>
+        <div>
+            <label>Costo: </label>
 
-      <input type="text" [(ngModel)]="medicamento.tipo">
-    </div>
+            <input type="text" [(ngModel)]="medicamento.tipo" />
+        </div>
 
-    <button class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
+        <button class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
       <fa-icon [icon]="createIcon"></fa-icon>
     </button>
 
-    <button class="btn btn-info" (click)="editar()" *ngIf="updateBtn">
+        <button class="btn btn-info" (click)="editar()" *ngIf="updateBtn">
       <fa-icon [icon]="updateIcon"></fa-icon>
     </button>
-  </section>
+    </section>
 
-  <section class="inventario-data">
-    <div class="table-header">
-      <label>Id</label>
+    <section class="inventario-data">
+        <div class="table-header">
+            <label>Id</label>
 
-      <label>Nombre</label>
+            <label>Nombre</label>
 
-      <label>Laboratorio</label>
+            <label>Fecha</label>
 
-      <label>Medida</label>
+            <label>Cantidad</label>
 
-      <label>Tipo</label>
+            <label>Costo</label>
 
-      <label>Opciones</label>
-    </div>
+            <label>Opciones</label>
+        </div>
 
-    <div class="table-content" *ngFor="let inventario of medicamentos; let i=index">
-      <label>{{i + 1}}</label>
+        <div class="table-content" *ngFor="let venta of ventas; let i = index">
+            <label>{{ i + 1 }}</label>
 
-      <label>{{inventario.nombre}}</label>
+            <label>---</label>
 
-      <label>{{inventario.laboratorio}}</label>
+            <label>{{ venta.fecha_venta | date: "medium" }}</label>
 
-      <label>{{inventario.medida}}</label>
+            <label>{{ venta.cantidad }}</label>
 
-      <label>{{inventario.tipo}}</label>
+            <label>{{ venta.costo }}bs</label>
 
-      <label class="options">
-        <button class="btn btn-warning" (click)="editarView(inventario)">
+            <label class="options">
+        <button class="btn btn-warning" (click)="editarView(venta)">
           <fa-icon [icon]="updateIcon"></fa-icon>
         </button>
 
-        <button class="btn btn-danger" (click)="eliminar(inventario)">
+        <button class="btn btn-danger" (click)="eliminar(venta)">
           <fa-icon [icon]="delIcon"></fa-icon>
         </button>
       </label>
-    </div>
-  </section>
+        </div>
+    </section>
 </article>

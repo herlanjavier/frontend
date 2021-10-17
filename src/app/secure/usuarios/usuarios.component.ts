@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Usuario} from '../../integration/interfaces/usuario.interface';
-import {faEdit, faTrash, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../integration/interfaces/usuario.interface';
+import { faEdit, faTrash, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.scss']
+  styleUrls: ['./usuarios.component.scss'],
 })
 export class UsuariosComponent implements OnInit {
   public createIcon = faUserPlus;
@@ -17,29 +18,13 @@ export class UsuariosComponent implements OnInit {
   public createBtn = false;
   public updateBtn = false;
 
-  constructor() {
+  constructor(private userService: UserService) {
+    this.userService.getUsers().subscribe((usr) => {
+      this.usuarios = [...usr];
+    });
   }
 
-  ngOnInit(): void {
-    const user1: Usuario = {
-      id: 1,
-      email: 'herlan@gmail.com',
-      nombre: 'herlan',
-      paterno: 'castro',
-      materno: 'acero',
-      password: 'dasd',
-    };
-    const user2: Usuario = {
-      id: 2,
-      email: 'mario@gmail.com',
-      nombre: 'mario',
-      paterno: 'bros',
-      materno: 'delgado',
-      password: 'daassd',
-    };
-    this.usuarios.push(user1);
-    this.usuarios.push(user2);
-  }
+  ngOnInit(): void {}
 
   agregarView(): void {
     this.inputView = true;
@@ -57,11 +42,11 @@ export class UsuariosComponent implements OnInit {
     this.inputView = true;
     this.createBtn = false;
     this.updateBtn = true;
-    this.user = {...user};
+    this.user = { ...user };
   }
 
   editar(): void {
-    this.usuarios.forEach(user => {
+    this.usuarios.forEach((user) => {
       if (user.id === this.user.id) {
         user.nombre = this.user.nombre;
         user.paterno = this.user.paterno;
@@ -77,5 +62,4 @@ export class UsuariosComponent implements OnInit {
     const position = this.usuarios.indexOf(usuario);
     this.usuarios.splice(position, 1);
   }
-
 }
