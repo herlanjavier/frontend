@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Medicamento} from '../../integration/interfaces/medicamento.interface';
 
 @Component({
   selector: 'app-shop',
@@ -7,11 +8,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ShopComponent implements OnInit {
   paymentHandler: any = null;
+  @Input() buyItems: Medicamento[] = [];
+  public total = 0;
 
   constructor() {
+
   }
 
   ngOnInit(): void {
+    for (const med of this.buyItems) {
+      this.total = this.total + Number(med.precio);
+    }
     this.invokeStripe();
   }
 

@@ -15,6 +15,9 @@ export class ProductosComponent implements OnInit {
   public backIcon = faChevronCircleLeft;
   public shopIcon = faShoppingCart;
   public item = '';
+  public buyItems: Medicamento[] = [];
+  public cantidad = 0;
+  public comprarSW = false;
 
   constructor(private medicamentoService: MedicamentoService) {
   }
@@ -30,5 +33,14 @@ export class ProductosComponent implements OnInit {
       item.nombre_generico.toLowerCase().includes(this.item.toLocaleLowerCase())
     );
     this.searchMedicamentos = [...res];
+  }
+
+  addToCart(medicamento: Medicamento): void {
+    this.buyItems.push(medicamento);
+    this.cantidad = this.buyItems.length;
+  }
+
+  comprar(): void {
+    this.comprarSW = true;
   }
 }

@@ -1,4 +1,4 @@
-<main class="products-content">
+<main class="products-content" *ngIf="!comprarSW">
   <div class="products-header">
     <fa-icon [icon]="backIcon" routerLink="public"></fa-icon>
 
@@ -6,15 +6,15 @@
 
     <input type="text" [(ngModel)]="item" (keyup.enter)="buscar()"/>
 
-    <button class="btn btn-warning" routerLink='../shop'>
-      <label>0</label>
+    <button class="btn btn-warning" (click)="comprar()">
+      <label class="cantidad" ngDefaultControl [(ngModel)]="cantidad">{{cantidad}}</label>
 
       <fa-icon [icon]="shopIcon"></fa-icon>
     </button>
   </div>
 
   <article class="productos-container" *ngIf="item === ''">
-    <section class="medicamento-card" *ngFor="let medicamento of medicamentos">
+    <section class="medicamento-card" *ngFor="let medicamento of medicamentos" (click)="addToCart(medicamento)">
       <fa-icon [icon]="pillIcon"></fa-icon>
       <label class="title">{{ medicamento.nombre_generico }}</label>
       <label>Precio: {{ medicamento.precio }} Bs</label>
@@ -24,7 +24,7 @@
   </article>
 
   <article class="productos-container" *ngIf="item !== ''">
-    <section class="medicamento-card" *ngFor="let medicamento of searchMedicamentos">
+    <section class="medicamento-card" *ngFor="let medicamento of searchMedicamentos" (click)="addToCart(medicamento)">
       <fa-icon [icon]="pillIcon"></fa-icon>
       <label class="title">{{ medicamento.nombre_generico }}</label>
       <label>Precio: {{ medicamento.precio }} Bs</label>
@@ -33,3 +33,5 @@
     </section>
   </article>
 </main>
+
+<app-shop [buyItems]="buyItems" *ngIf="comprarSW"></app-shop>

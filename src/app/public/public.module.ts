@@ -12,20 +12,23 @@ import {StripeModule} from 'stripe-angular';
 
 
 @NgModule({
-  declarations: [
-    PublicComponent,
-    MapaComponent,
-    InfoComponent,
-    ShopComponent
-  ],
-  imports: [
-    CommonModule,
-    PublicRoutingModule,
-    FontAwesomeModule,
-    FormsModule,
-    StripeModule.forRoot('')
-  ],
+    declarations: [
+        PublicComponent,
+        MapaComponent,
+        InfoComponent,
+        ShopComponent
+    ],
+    imports: [
+        CommonModule,
+        PublicRoutingModule,
+        FontAwesomeModule,
+        FormsModule,
+        StripeModule.forRoot('')
+    ],
 
+    exports: [
+        ShopComponent
+    ]
 })
 export class PublicModule {
 }

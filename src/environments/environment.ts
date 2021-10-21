@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  MAPBOX:
-    'pk.eyJ1IjoiYXJtYWdlZG9uIiwiYSI6ImNrcDhreXBycDAycnUyd3A0anA3dm00eXQifQ.Ah8m9bt7fXdX9Ut-PmKBLg',
+	production: false,
+	MAPBOX: 'pk.eyJ1IjoiYXJtYWdlZG9uIiwiYSI6ImNrcDhreXBycDAycnUyd3A0anA3dm00eXQifQ.Ah8m9bt7fXdX9Ut-PmKBLg',
+	dialogflow: {
+		chatBot: '',
+	},
 };
 
 /*

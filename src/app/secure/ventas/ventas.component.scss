@@ -35,7 +35,7 @@
 
   .table-header {
     display: grid;
-    grid-template-columns: 1fr repeat(5, 2fr);
+    grid-template-columns: 1fr 2fr 3fr repeat(3, 2fr);
     align-items: center;
     height: 80px;
     width: 100%;
@@ -50,7 +50,7 @@
 
   .table-content {
     display: grid;
-    grid-template-columns: 1fr repeat(5, 2fr);
+    grid-template-columns: 1fr 2fr 3fr repeat(3, 2fr);
     justify-items: center;
     position: relative;
     animation: intro 0.5s ease-in;
@@ -94,5 +94,4 @@
   to {
     top: 0;
   }
-
 }

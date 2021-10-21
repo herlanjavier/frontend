@@ -1,48 +1,48 @@
 <article class="public-container">
-    <section class="welcome-content">
-        <div class="admin-access">
-            <input [(ngModel)]="userName" placeholder="Nombre" type="text" />
+  <section class="welcome-content">
+    <div class="admin-access">
+      <input [(ngModel)]="userName" placeholder="Nombre" type="text"/>
 
-            <input type="password" placeholder="Contraseña" [(ngModel)]="password" />
+      <input type="password" placeholder="Contraseña" [(ngModel)]="password"/>
 
-            <button (click)="login()">
+      <button (click)="login()">
         <fa-icon [icon]="userIcon"></fa-icon>
 
         <label>Admin</label>
       </button>
-        </div>
+    </div>
 
-        <section class="main-content">
-            <h1>Bienvenido a SERVIFARMA</h1>
+    <section class="main-content">
+      <h1>Bienvenido a SERVIFARMA</h1>
 
-            <section class="main-text">
-                <label>
+      <section class="main-text">
+        <label>
           Estamos enfocados en la salud de nuestra comunidad. Contamos con un
           stock completo de medicamentos para abastecer a nuestros clientes.
         </label>
 
-                <button class="main-button" (click)="scrollDown()">Empezar</button>
-            </section>
-        </section>
+        <button class="main-button" (click)="scrollDown()">Empezar</button>
+      </section>
     </section>
+  </section>
 
-    <section class="menu-content">
-        <router-outlet></router-outlet>
-    </section>
+  <section class="menu-content">
+    <router-outlet></router-outlet>
+  </section>
 
-    <section class="footer-content">
-        <div class="footer-text">
-            <div class="icons">
-                <fa-icon [icon]="facebookIcon"></fa-icon>
-                <fa-icon [icon]="twitterIcon"></fa-icon>
-                <fa-icon [icon]="whatsappIcon"></fa-icon>
-            </div>
+  <section class="footer-content">
+    <div class="footer-text">
+      <div class="icons">
+        <fa-icon [icon]="facebookIcon"></fa-icon>
+        <fa-icon [icon]="twitterIcon"></fa-icon>
+        <fa-icon [icon]="whatsappIcon"></fa-icon>
+      </div>
 
-            <label>
+      <label>
         Av. siempre viva, Calle #2, #423 en plena esquina. Cel: 1235123
       </label>
-        </div>
-        <label> &copy; Derechos Reservados 2021 </label>
-        <div></div>
-    </section>
+    </div>
+    <label> &copy; Derechos Reservados 2021 </label>
+    <div></div>
+  </section>
 </article>
