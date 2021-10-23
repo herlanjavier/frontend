@@ -12,6 +12,7 @@ export class SecureComponent implements OnInit {
   public iconReserva = faShoppingCart;
   public iconInventario = faDollyFlatbed;
   public iconBack = faChevronLeft;
+  public nombre = sessionStorage.getItem('serviUser');
 
   constructor() {
   }
@@ -19,4 +20,7 @@ export class SecureComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  exit(): void {
+    sessionStorage.setItem('serviUser', '');
+  }
 }

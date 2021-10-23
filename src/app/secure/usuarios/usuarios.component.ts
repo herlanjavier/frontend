@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../integration/interfaces/usuario.interface';
-import { faEdit, faTrash, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from '../../services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {Usuario} from '../../integration/interfaces/usuario.interface';
+import {faEdit, faTrash, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import {UserService} from '../../integration/services/user.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -19,12 +19,18 @@ export class UsuariosComponent implements OnInit {
   public updateBtn = false;
 
   constructor(private userService: UserService) {
+    this.getUsers();
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  getUsers(): void {
     this.userService.getUsers().subscribe((usr) => {
       this.usuarios = [...usr];
     });
   }
-
-  ngOnInit(): void {}
 
   agregarView(): void {
     this.inputView = true;
@@ -33,7 +39,9 @@ export class UsuariosComponent implements OnInit {
   }
 
   agregar(): void {
-    this.usuarios.push(this.user);
+    this.userService.createUser(this.user).subscribe(res => {
+      this.getUsers();
+    });
     this.inputView = false;
     this.user = {} as Usuario;
   }
@@ -42,7 +50,7 @@ export class UsuariosComponent implements OnInit {
     this.inputView = true;
     this.createBtn = false;
     this.updateBtn = true;
-    this.user = { ...user };
+    this.user = {...user};
   }
 
   editar(): void {
@@ -59,7 +67,8 @@ export class UsuariosComponent implements OnInit {
   }
 
   eliminar(usuario: Usuario): void {
-    const position = this.usuarios.indexOf(usuario);
-    this.usuarios.splice(position, 1);
+    this.userService.deleteUser(usuario).subscribe(res => {
+      this.getUsers();
+    });
   }
 }

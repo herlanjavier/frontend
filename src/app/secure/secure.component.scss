@@ -23,6 +23,11 @@
       display: flex;
       justify-content: flex-start;
       outline: none;
+
+      .nombre{
+        margin-left: 20px;
+        font-size: 0.8em;
+      }
     }
 
     .secure-item {

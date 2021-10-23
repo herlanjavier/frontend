@@ -25,8 +25,8 @@ const routes: Routes = [
       {
         path: 'inventario', component: InventarioComponent
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({

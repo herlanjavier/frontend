@@ -1,7 +1,9 @@
 <article class="secure-container">
   <section class="secure-menu">
-    <button class="atras" routerLink="public" routerLinkActive="active">
+    <button class="atras" routerLink="public" routerLinkActive="active" (click)="exit()">
       <fa-icon [icon]="iconBack"></fa-icon>
+
+      <label class="nombre">{{nombre}}</label>
     </button>
 
     <div class="secure-item" routerLink="usuarios" routerLinkActive="active">

@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {LoginGuard} from './integration/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,12 @@ const routes: Routes = [
     path: 'secure',
     loadChildren: () =>
       import('./secure/secure.module').then((m) => m.SecureModule),
+    canLoad: [LoginGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'public',
+    pathMatch: 'full'
   },
   {
     path: '**',

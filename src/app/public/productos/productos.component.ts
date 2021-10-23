@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {faChevronCircleLeft, faPills, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import {Medicamento} from '../../integration/interfaces/medicamento.interface';
-import {MedicamentoService} from '../../services/medicamento.service';
+import {MedicamentoService} from '../../integration/services/medicamento.service';
 
 @Component({
   selector: 'app-productos',

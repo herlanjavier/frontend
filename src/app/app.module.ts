@@ -6,21 +6,21 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ProductosComponent} from './public/productos/productos.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {PublicModule} from "./public/public.module";
+import {PublicModule} from './public/public.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FontAwesomeModule,
-        FormsModule,
-        HttpClientModule,
-        PublicModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
+    PublicModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

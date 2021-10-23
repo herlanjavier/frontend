@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MedicamentoService} from '../../services/medicamento.service';
+import {MedicamentoService} from '../../integration/services/medicamento.service';
 import {Medicamento} from '../../integration/interfaces/medicamento.interface';
 
 @Component({

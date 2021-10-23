@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faPills, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Medicamento } from '../../integration/interfaces/medicamento.interface';
-import { VentaService } from '../../services/venta.service';
+import { VentaService } from '../../integration/services/venta.service';
 import { Venta } from '../../integration/interfaces/venta.interface';
 
 @Component({

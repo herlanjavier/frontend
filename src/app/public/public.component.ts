@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {faUserLock} from '@fortawesome/free-solid-svg-icons/faUserLock';
 import {Router} from '@angular/router';
 import {faFacebook, faTwitter, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
-import {UserService} from '../services/user.service';
+import {UserService} from '../integration/services/user.service';
+import {Usuario} from "../integration/interfaces/usuario.interface";
+import {createLogErrorHandler} from "@angular/compiler-cli/ngcc/src/execution/tasks/completion";
 
 @Component({
   selector: 'app-public',
@@ -32,11 +34,15 @@ export class PublicComponent implements OnInit {
   }
 
   login(): void {
-    this.userService.getUsers().subscribe(user => {
-      const usr = user.find(x => x.nombre.toLowerCase() === this.userName.toLowerCase());
-      // @ts-ignore
-      if (usr.password === this.password) {
-        this.router.navigateByUrl('/secure').then();
+    const user = {} as Usuario;
+    user.nombre = this.userName;
+    user.password = this.password;
+
+    this.userService.login(user).subscribe(usr => {
+      if (usr) {
+        sessionStorage.setItem('serviUser', usr.nombre + ' ' + usr.paterno);
+        this.router.navigateByUrl('/secure');
+
       }
     });
   }
