@@ -3,8 +3,7 @@ import {faUserLock} from '@fortawesome/free-solid-svg-icons/faUserLock';
 import {Router} from '@angular/router';
 import {faFacebook, faTwitter, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 import {UserService} from '../integration/services/user.service';
-import {Usuario} from "../integration/interfaces/usuario.interface";
-import {createLogErrorHandler} from "@angular/compiler-cli/ngcc/src/execution/tasks/completion";
+import {Usuario} from '../integration/interfaces/usuario.interface';
 
 @Component({
   selector: 'app-public',
@@ -24,6 +23,7 @@ export class PublicComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   scrollDown(): void {
     window.scroll({
@@ -46,4 +46,6 @@ export class PublicComponent implements OnInit {
       }
     });
   }
+
+
 }

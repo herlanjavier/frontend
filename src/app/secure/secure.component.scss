@@ -15,18 +15,30 @@
 
     .atras {
       background: none;
-      height: 80px;
+      height: 60px;
       border: none;
       color: #e8e8e8;
       font-size: 1.5em;
       width: 90%;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-around;
+      align-items: center;
       outline: none;
+      cursor: auto;
+      margin-bottom: 30px;
 
-      .nombre{
+      .exit{
+        cursor: pointer;
+        color: #B61919;
+      }
+
+      .nombre {
+        display: flex;
+        width: 90%;
+        align-items: center;
+        justify-content: space-evenly;
         margin-left: 20px;
-        font-size: 0.8em;
+        font-size: 0.7em;
       }
     }
 

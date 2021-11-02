@@ -7,6 +7,7 @@ import {ProductosComponent} from './public/productos/productos.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {PublicModule} from './public/public.module';
+import {IntegrationModule} from './integration/integration.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {PublicModule} from './public/public.module';
     FormsModule,
     HttpClientModule,
     PublicModule,
+    IntegrationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

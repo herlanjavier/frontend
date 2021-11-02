@@ -30,7 +30,7 @@
       <input type="text" [(ngModel)]="user.email">
     </div>
 
-    <button class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
+    <button id="btn1" class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
       <fa-icon [icon]="createIcon"></fa-icon>
     </button>
 
@@ -66,13 +66,13 @@
       <label>{{user.email}}</label>
 
       <label class="options">
-        <button class="btn btn-warning" (click)="editarView(user)">
+        <a class="btn btn-warning" (click)="editarView(user)">
           <fa-icon [icon]="updateIcon"></fa-icon>
-        </button>
+        </a>
 
-        <button class="btn btn-danger" (click)="eliminar(user)">
+        <a class="btn btn-danger" (click)="eliminar(user)">
           <fa-icon [icon]="delIcon"></fa-icon>
-        </button>
+        </a>
       </label>
     </div>
   </section>

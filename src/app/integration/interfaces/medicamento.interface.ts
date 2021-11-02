@@ -10,4 +10,6 @@ export interface Medicamento {
   dosis: string;
   descripcion: string;
   fecha_vencimiento: string;
+  cantidad?: number;
+  cant_compra: number;
 }

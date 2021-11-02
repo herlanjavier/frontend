@@ -12,12 +12,8 @@ const routes: Routes = [
     path: 'secure',
     loadChildren: () =>
       import('./secure/secure.module').then((m) => m.SecureModule),
-    canLoad: [LoginGuard]
-  },
-  {
-    path: '',
-    redirectTo: 'public',
-    pathMatch: 'full'
+    canLoad: [LoginGuard],
+    canActivate: [LoginGuard]
   },
   {
     path: '**',

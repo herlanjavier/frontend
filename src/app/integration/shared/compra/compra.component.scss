@@ -1,0 +1,31 @@
+.compra-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+  width: 700px;
+
+  .compra-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    font-weight: bold;
+    place-items: center;
+  }
+
+  .compra-content {
+    display: flex;
+    flex-direction: column;
+
+    .compra-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      height: 50px;
+      place-items: center;
+      text-align: center;
+    }
+
+    .total{
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+}

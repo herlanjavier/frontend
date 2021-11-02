@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { faEdit, faPills, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Medicamento } from '../../integration/interfaces/medicamento.interface';
-import { VentaService } from '../../integration/services/venta.service';
-import { Venta } from '../../integration/interfaces/venta.interface';
+import {Component, OnInit} from '@angular/core';
+import {faSearch, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
+import {Compra} from '../../integration/interfaces/compra.interface';
+import {Medicamento} from "../../integration/interfaces/medicamento.interface";
+import {MedicamentoService} from "../../integration/services/medicamento.service";
+
 
 @Component({
   selector: 'app-ventas',
@@ -10,59 +11,28 @@ import { Venta } from '../../integration/interfaces/venta.interface';
   styleUrls: ['./ventas.component.scss'],
 })
 export class VentasComponent implements OnInit {
-  public createIcon = faPills;
-  public updateIcon = faEdit;
-  public delIcon = faTrash;
-  public medicamento: Medicamento = {} as Medicamento;
-  public ventas: Venta[] = [];
-  public venta: Venta = {} as Venta;
-  public inputView = false;
-  public createBtn = false;
-  public updateBtn = false;
+  public filtro = '';
+  public searchIcon = faSearch;
+  public buyIcon = faShoppingCart;
+  public items = 0;
+  public compras: Compra[] = [];
+  public swCompra = false;
 
-  constructor(private ventaService: VentaService) {
-    this.ventaService.getVentas().subscribe((venta) => {
-      console.log(venta);
-      this.ventas = [...venta];
-    });
+  constructor() {
+
   }
 
-  ngOnInit(): void {}
-
-  agregarView(): void {
-    this.inputView = true;
-    this.createBtn = true;
-    this.updateBtn = false;
+  ngOnInit(): void {
   }
 
-  agregar(): void {
-    this.ventas.push(this.venta);
-    this.inputView = false;
-    this.venta = {} as Venta;
+  addItem(compra: Compra): void {
+    this.compras.push(compra);
+    this.items += compra.cantidad;
   }
 
-  editarView(venta: Venta): void {
-    this.inputView = true;
-    this.createBtn = false;
-    this.updateBtn = true;
-    this.venta = { ...venta };
+  buy(): void {
+    this.swCompra = true;
   }
 
-  editar(): void {
-    // this.medicamentos.forEach((medicamento) => {
-    //   if (medicamento.id === this.medicamento.id) {
-    //     medicamento.nombre = this.medicamento.nombre;
-    //     medicamento.laboratorio = this.medicamento.laboratorio;
-    //     medicamento.medida = this.medicamento.medida;
-    //     medicamento.tipo = this.medicamento.tipo;
-    //   }
-    // });
-    // this.inputView = false;
-    // this.medicamento = {} as Medicamento;
-  }
 
-  eliminar(venta: Venta): void {
-    const position = this.ventas.indexOf(venta);
-    this.ventas.splice(position, 1);
-  }
 }

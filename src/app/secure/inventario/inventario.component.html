@@ -1,18 +1,28 @@
 <article class="inventario-container">
   <section class="inventario-header">
-    <input type="text" placeholder="nombre">
+    <input type="text" placeholder="nombre" [(ngModel)]="medicamento.nombre">
 
-    <input type="text" placeholder="laboratorio">
+    <input type="text" placeholder="laboratorio" [(ngModel)]="medicamento.laboratorio">
 
-    <input type="text" placeholder="medida">
+    <input type="text" placeholder="medida" [(ngModel)]="medicamento.medida">
 
-    <input type="text" placeholder="tipo">
+    <input type="text" placeholder="tipo" [(ngModel)]="medicamento.tipo">
 
-    <input type="text" placeholder="precio">
+    <button class="btn btn-warning" (click)="editData()">
+      <fa-icon [icon]="editIcon"></fa-icon>
+    </button>
 
-    <input type="text" placeholder="dosis">
+    <input type="text" placeholder="precio" [(ngModel)]="medicamento.precio">
 
-    <input type="text" placeholder="descripcion">
+    <input type="text" placeholder="dosis" [(ngModel)]="medicamento.dosis">
+
+    <input type="text" placeholder="descripcion" [(ngModel)]="medicamento.descripcion">
+
+    <input type="number" placeholder="cantidad" [(ngModel)]="medicamento.cantidad">
+
+    <button class="btn btn-danger" (click)="delData()">
+      <fa-icon [icon]="delIcon"></fa-icon>
+    </button>
   </section>
 
   <section class="inventario-body">
@@ -30,23 +40,27 @@
       <label>Dosis</label>
 
       <label>Descripcion</label>
+
+      <label>Cantidad</label>
     </div>
 
     <section class="content">
-      <div class="medicamento" *ngFor="let medicamento of medicamentos">
+      <div class="medicamento" *ngFor="let medicamento of medicamentos" (click)="fillData(medicamento)">
         <label>{{medicamento.nombre_generico}}</label>
 
         <label>{{medicamento.laboratorio}}</label>
 
         <label>{{medicamento.medida}}</label>
 
-        <label>{{medicamento.tipo}}</label>
+        <label>{{medicamento.tipo|titlecase}}</label>
 
         <label>{{medicamento.precio}}</label>
 
         <label>{{medicamento.dosis}}</label>
 
         <label>{{medicamento.descripcion|lowercase}}</label>
+
+        <label>{{medicamento.cantidad}}</label>
       </div>
     </section>
   </section>

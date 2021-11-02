@@ -1,79 +1,22 @@
-<article class="inventario-container">
-    <section class="create-inventario">
-        <button class="btn btn-success" (click)="agregarView()">
-      <label>Agregar medicamento</label>
+<article class="venta-container">
+  <section class="medicamentos-header" *ngIf="!swCompra">
+    <input type="text" name="filtro" [(ngModel)]="filtro">
+
+    <div>
+      <fa-icon [icon]="searchIcon"></fa-icon>
+    </div>
+  </section>
+
+  <section class="pago" *ngIf="items>0 && !swCompra">
+    <button class="btn btn-warning" (click)="buy()">
+      <label>{{items}}</label>
+
+      <fa-icon [icon]="buyIcon"></fa-icon>
     </button>
-    </section>
+  </section>
 
-    <section class="userAction" *ngIf="inputView">
-        <div>
-            <label>Nombre: </label>
+  <app-products [filtro]="filtro" (compra)="addItem($event)" *ngIf="!swCompra"></app-products>
 
-            <input type="text" [(ngModel)]="medicamento.nombre" />
-        </div>
-
-        <div>
-            <label>Fecha: </label>
-
-            <input type="text" [(ngModel)]="medicamento.laboratorio" />
-        </div>
-
-        <div>
-            <label>Cantidad: </label>
-
-            <input type="text" [(ngModel)]="medicamento.medida" />
-        </div>
-
-        <div>
-            <label>Costo: </label>
-
-            <input type="text" [(ngModel)]="medicamento.tipo" />
-        </div>
-
-        <button class="btn btn-info" (click)="agregar()" *ngIf="createBtn">
-      <fa-icon [icon]="createIcon"></fa-icon>
-    </button>
-
-        <button class="btn btn-info" (click)="editar()" *ngIf="updateBtn">
-      <fa-icon [icon]="updateIcon"></fa-icon>
-    </button>
-    </section>
-
-    <section class="inventario-data">
-        <div class="table-header">
-            <label>Id</label>
-
-            <label>Nombre</label>
-
-            <label>Fecha</label>
-
-            <label>Cantidad</label>
-
-            <label>Costo</label>
-
-            <label>Opciones</label>
-        </div>
-
-        <div class="table-content" *ngFor="let venta of ventas; let i = index">
-            <label>{{ i + 1 }}</label>
-
-            <label>---</label>
-
-            <label>{{ venta.fecha_venta | date: "medium" }}</label>
-
-            <label>{{ venta.cantidad }}</label>
-
-            <label>{{ venta.costo }}bs</label>
-
-            <label class="options">
-        <button class="btn btn-warning" (click)="editarView(venta)">
-          <fa-icon [icon]="updateIcon"></fa-icon>
-        </button>
-
-        <button class="btn btn-danger" (click)="eliminar(venta)">
-          <fa-icon [icon]="delIcon"></fa-icon>
-        </button>
-      </label>
-        </div>
-    </section>
+  <app-compra [compras]="compras" *ngIf="swCompra"></app-compra>
 </article>
+

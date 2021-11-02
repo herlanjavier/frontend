@@ -9,6 +9,7 @@ import {VentasComponent} from './ventas/ventas.component';
 import {ReservasComponent} from './reservas/reservas.component';
 import {InventarioComponent} from './inventario/inventario.component';
 import {FormsModule} from '@angular/forms';
+import {IntegrationModule} from "../integration/integration.module";
 
 
 @NgModule({
@@ -19,12 +20,13 @@ import {FormsModule} from '@angular/forms';
     ReservasComponent,
     InventarioComponent
   ],
-  imports: [
-    CommonModule,
-    SecureRoutingModule,
-    FontAwesomeModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        SecureRoutingModule,
+        FontAwesomeModule,
+        FormsModule,
+        IntegrationModule
+    ]
 })
 export class SecureModule {
 }

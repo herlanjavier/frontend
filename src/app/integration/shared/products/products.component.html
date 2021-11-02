@@ -1,0 +1,29 @@
+<article class="product-content">
+  <section class="medicamentos-content">
+    <div class="medicamento-title">
+      <label>Nombre</label>
+
+      <label>Precio</label>
+
+      <label>Descripcion</label>
+
+      <label>Cantidad</label>
+
+      <label>Opciones</label>
+    </div>
+
+    <div class="medicamento" *ngFor="let medicamento of medicamentos | filter:filtro">
+      <label>{{medicamento.nombre_generico|titlecase}}</label>
+
+      <label>{{medicamento.precio}}bs</label>
+
+      <label>{{medicamento.descripcion | lowercase}}</label>
+
+      <input type="number" [min]="0" [(ngModel)]="medicamento.cant_compra">
+
+      <button class="btn btn-success compra-btn" (click)="addItem(medicamento)">
+        <fa-icon [icon]="addIcon"></fa-icon>
+      </button>
+    </div>
+  </section>
+</article>

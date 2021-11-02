@@ -1,0 +1,47 @@
+.product-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.medicamentos-content {
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 80vh;
+  width: 94%;
+  padding: 15px;
+
+  .medicamento-title {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr 1fr 1fr;
+    justify-items: center;
+    font-weight: bold;
+  }
+
+  .medicamento {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr 1fr 1fr;
+    justify-items: center;
+    place-items: center;
+    border-bottom: 1px solid #ffffff;
+    height: min-content;
+    text-align: center;
+    animation: fade-in 1s ease-in;
+
+    input {
+      width: 60px;
+      height: 30px;
+      border: none;
+      padding-left: 5px;
+    }
+
+    .compra-btn {
+      padding: 0;
+      width: 35px;
+      height: 35px;
+      margin: 5px 0;
+    }
+  }
+}

@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initChatBot();
+  }
+
+  initChatBot(): void {
     ((d, m) => {
       const kommunicateSettings = {
         appId: '13d8ccb7236e9a8db89dee87f3c53b0e9',

@@ -1,97 +1,61 @@
-.inventario-container {
+.venta-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: calc(100vw - 300px);
+  justify-content: center;
+  width: 100%;
   height: 100%;
 
-  .create-inventario {
+  .medicamentos-header {
     display: flex;
-    align-items: center;
     height: 70px;
-    width: 90%;
-    justify-content: flex-end;
 
-    .btn {
+    input {
+      padding-left: 10px;
+      border: none;
+      height: 40px;
+      border-radius: 5px 0 0 5px;
+    }
+
+    div {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 200px;
-      cursor: pointer;
+      height: 40px;
+      width: 40px;
+      background: #ffffff;
+      border-radius: 0 5px 5px 0;
 
-      label {
-        cursor: pointer;
+      fa-icon {
+        font-size: 1.1em;
+        color: #b4b8bb;
       }
     }
   }
 
-  .inventario-data {
-    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-    width: 90%;
-    height: 500px;
-    overflow-y: auto;
-  }
-
-  .table-header {
-    display: grid;
-    grid-template-columns: 1fr 2fr 3fr repeat(3, 2fr);
-    align-items: center;
-    height: 80px;
-    width: 100%;
-
-    label {
-      font-weight: bold;
-      width: 100%;
-      text-align: center;
-      border-bottom: 1px solid #2C394B;
-    }
-  }
-
-  .table-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr 3fr repeat(3, 2fr);
-    justify-items: center;
-    position: relative;
-    animation: intro 0.5s ease-in;
-
-    .options {
-      display: flex;
-      width: 100%;
-      justify-content: space-evenly;
-    }
-  }
-
-  .userAction {
+  .pago {
     display: flex;
-    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
-    height: 80px;
-    width: 90%;
-    margin: 10px;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-left: 20px;
+    justify-content: flex-end;
+    width: 80%;
 
-    input {
-      border: none;
-      width: 200px;
-      padding-left: 10px;
-    }
-
-    button {
-      height: 50px;
-      margin-right: 20px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100px;
+      font-size: 1.1em;
+      margin: 10px 0;
     }
   }
+
+
 }
 
-@keyframes intro {
+@keyframes fade-in {
   from {
-    opacity: 0.5;
-    top: -10px;
+    opacity: 0.4;
   }
-
   to {
-    top: 0;
+    opacity: 1;
   }
 }

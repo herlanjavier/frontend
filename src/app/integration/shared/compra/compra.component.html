@@ -1,0 +1,23 @@
+<article class="compra-container">
+  <section class="compra-header">
+    <label>Nombre </label>
+
+    <label>Cantidad </label>
+
+    <label>Precio </label>
+  </section>
+
+  <section ngDefaultControl class="compra-content" [(ngModel)]="compras">
+    <div class="compra-item" *ngFor="let compra of compras">
+      <label>{{compra.nombre}}</label>
+
+      <label>{{compra.cantidad}}</label>
+
+      <label>{{compra.total}}bs</label>
+    </div>
+
+    <label class="total">TOTAL: {{total}}bs</label>
+
+    <button class="btn btn-danger" (click)="pagar(compras)">Realizar el pago</button>
+  </section>
+</article>

@@ -3,25 +3,28 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanActivateChild,
-  CanLoad, Router,
+  CanLoad,
+  Router,
   RouterStateSnapshot,
   UrlTree
 } from '@angular/router';
 import {Observable} from 'rxjs';
-import {UserService} from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private router: Router) {
 
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (sessionStorage.getItem('serviUser')) {
+      return true;
+    } else {
+      this.router.navigateByUrl('/public');
+      return false;
+    }
   }
 
   canActivateChild(
@@ -31,6 +34,11 @@ export class LoginGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   canLoad(): Observable<boolean> | Promise<boolean> | boolean {
-    return !!sessionStorage.getItem('serviUser');
+    if (sessionStorage.getItem('serviUser')) {
+      return true;
+    } else {
+      this.router.navigateByUrl('/public');
+      return false;
+    }
   }
 }

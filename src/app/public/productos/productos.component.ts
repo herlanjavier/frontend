@@ -10,7 +10,6 @@ import {MedicamentoService} from '../../integration/services/medicamento.service
 })
 export class ProductosComponent implements OnInit {
   public medicamentos: Medicamento[] = [];
-  public searchMedicamentos: Medicamento[] = [];
   public pillIcon = faPills;
   public backIcon = faChevronCircleLeft;
   public shopIcon = faShoppingCart;
@@ -26,13 +25,6 @@ export class ProductosComponent implements OnInit {
     this.medicamentoService.getMedicamentos().subscribe((res) => {
       this.medicamentos = [...res];
     });
-  }
-
-  buscar(): void {
-    const res = this.medicamentos.filter((item) =>
-      item.nombre_generico.toLowerCase().includes(this.item.toLocaleLowerCase())
-    );
-    this.searchMedicamentos = [...res];
   }
 
   addToCart(medicamento: Medicamento): void {
