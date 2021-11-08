@@ -1,11 +1,17 @@
 export interface Reserva {
-  usuario: string;
-  products: Product[];
+  id?: string;
+  id_medicamentos: string;
+  cantidad: string;
+  nombre: string;
+  paterno: string;
+  ci: string;
   fecha: string;
   entregado: boolean;
+  createdAt?: string;
+  producto?: Product[];
 }
 
-interface Product {
+export interface Product {
   product: string;
   cantidad: number;
 }

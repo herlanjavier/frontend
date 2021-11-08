@@ -6,12 +6,18 @@
       <div>
         <label class="title">Nombre: </label>
 
-        <label>{{reserva.usuario|titlecase}}</label>
+        <label>{{reserva.nombre|titlecase}} {{reserva.paterno|titlecase}}</label>
       </div>
 
-      <label class="title">Producto</label>
+      <div>
+        <label class="title">CI: </label>
 
-      <div class="reserva-producto" *ngFor="let producto of reserva.products">
+        <label>{{reserva.ci}} </label>
+      </div>
+
+      <label class="title">Productos</label>
+
+      <div class="reserva-producto" *ngFor="let producto of reserva.producto">
         <label>{{producto.product}}</label>
 
         <label>{{producto.cantidad}}</label>
@@ -20,7 +26,7 @@
       <div>
         <label class="title">Fecha: </label>
 
-        <label> {{reserva.fecha}}</label>
+        <label> {{reserva.createdAt|date:'medium'}}</label>
       </div>
 
       <div>

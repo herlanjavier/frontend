@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Reserva} from '../../integration/interfaces/reserva.interface';
+import {Product, Reserva} from '../../integration/interfaces/reserva.interface';
+import {ReservaService} from '../../integration/services/reserva.service';
+import {MedicamentoService} from '../../integration/services/medicamento.service';
 
 @Component({
   selector: 'app-reservas',
@@ -7,32 +9,43 @@ import {Reserva} from '../../integration/interfaces/reserva.interface';
   styleUrls: ['./reservas.component.scss']
 })
 export class ReservasComponent implements OnInit {
-  public reservas: Reserva[] = [
-    {
-      usuario: 'pepe gonzales',
-      products: [{product: 'pasta dental', cantidad: 1}, {product: 'paracetamol', cantidad: 5}],
-      fecha: '19/02/2021 15:30',
-      entregado: true
-    }, {
-      usuario: 'fernando martinez',
-      products: [{product: 'iboprufeno', cantidad: 3}, {product: 'tapsin', cantidad: 1}],
-      fecha: '21/03/2021 12:05'
-      , entregado: true
-    }, {
-      usuario: 'mariana perez',
-      products: [{product: 'amoxicilina', cantidad: 4}],
-      fecha: '15/06/2021 13:30',
-      entregado: false
-    }
-  ];
+  public reservas: Reserva[] = [];
+  public medicamentos = [];
+  public cantidad = [];
 
-  constructor() {
+  constructor(private reservaService: ReservaService, private medicamentoService: MedicamentoService) {
+
   }
 
   ngOnInit(): void {
+    this.reservaService.getReservas().subscribe((res: Reserva[]) => {
+      this.reservas = [...res];
+
+      this.reservas.forEach(
+        re => {
+          const aux: Product[] = [];
+          const list = re.id_medicamentos.split(',');
+          const cant = re.cantidad.split(',');
+          list.forEach(d => {
+            this.medicamentoService.getMedicamento(d).subscribe(resp => {
+              const product: Product = {product: resp.nombre_generico, cantidad: Number(cant.shift())};
+              aux.push(product);
+            });
+            setTimeout(() => {
+              re.producto = [...aux];
+            }, 600);
+          });
+        }
+      );
+
+    });
   }
 
   entregar(reserva: Reserva): void {
+    const reser = {entregado: true} as Reserva;
+    this.reservaService.updateReserva(reserva.id, reser).subscribe(res => {
+      console.log(res);
+    });
     reserva.entregado = true;
   }
 

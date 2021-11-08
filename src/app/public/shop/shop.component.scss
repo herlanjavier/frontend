@@ -16,6 +16,20 @@
   }
 }
 
+.datos {
+  display: flex;
+  margin: 15px;
+  justify-content: space-evenly;
+  width: 90%;
+
+  input {
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    padding-left: 10px;
+  }
+}
+
 .total {
   font-size: 2em;
   font-weight: bold;
