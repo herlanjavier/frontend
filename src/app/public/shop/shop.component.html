@@ -1,34 +1,33 @@
 <section class="container">
-  <div class="datos">
-    <input type="text" placeholder="nombre" [(ngModel)]="nombre">
+	<div class="datos">
+		<input type="text" placeholder="nombre" [(ngModel)]="nombre" />
 
-    <input type="text" placeholder="apellido paterno" [(ngModel)]="paterno">
+		<input type="text" placeholder="apellido paterno" [(ngModel)]="paterno" />
 
-    <input type="text" placeholder="cedula de identidad" [(ngModel)]="ci">
-  </div>
+		<input type="text" placeholder="cedula de identidad" [(ngModel)]="ci" />
+	</div>
 
-  <div class="compra">
-    <div *ngFor="let item of buyItems">
-      <label>{{item.nombre_generico}}</label>
+	<div class="compra">
+		<div *ngFor="let item of buyItems">
+			<label>{{ item.nombre_generico }}</label>
 
-      <label>{{item.precio}}bs</label>
-    </div>
-  </div>
+			<label>{{ item.precio }}bs</label>
+		</div>
+	</div>
 
-  <div class="total">
-    <label>TOTAL: </label>
+	<div class="total">
+		<label>TOTAL: </label>
 
-    <label>{{total}}bs</label>
-  </div>
+		<label>{{ total }}bs</label>
+	</div>
 
-
-  <div class="col-md-5 mb-2">
-    <button (click)="makePayment(total)" class="btn btn-danger btn-block">Pagar</button>
-  </div>
-  <!--  <div class="col-md-5 mb-2">-->
-  <!--    <button (click)="makePayment(25)" class="btn btn-primary btn-block">Pay $25</button>-->
-  <!--  </div>-->
-  <!--  <div class="col-md-5">-->
-  <!--    <button (click)="makePayment(35)" class="btn btn-success btn-block">Pay $35</button>-->
-  <!--  </div>-->
+	<div class="col-md-5 mb-2">
+		<button (click)="makePayment(total)" class="btn btn-danger btn-block" [routerLink]="['public']">Pagar</button>
+	</div>
+	<!--  <div class="col-md-5 mb-2">-->
+	<!--    <button (click)="makePayment(25)" class="btn btn-primary btn-block">Pay $25</button>-->
+	<!--  </div>-->
+	<!--  <div class="col-md-5">-->
+	<!--    <button (click)="makePayment(35)" class="btn btn-success btn-block">Pay $35</button>-->
+	<!--  </div>-->
 </section>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product, Reserva} from '../../integration/interfaces/reserva.interface';
 import {ReservaService} from '../../integration/services/reserva.service';
 import {MedicamentoService} from '../../integration/services/medicamento.service';
+import {Medicamento} from "../../integration/interfaces/medicamento.interface";
 
 @Component({
   selector: 'app-reservas',
@@ -44,7 +45,22 @@ export class ReservasComponent implements OnInit {
   entregar(reserva: Reserva): void {
     const reser = {entregado: true} as Reserva;
     this.reservaService.updateReserva(reserva.id, reser).subscribe(res => {
-      console.log(res);
+      console.log('res', res);
+    });
+    let conta = 0;
+    const idMedicamentos = reserva.id_medicamentos.split(',');
+    idMedicamentos.forEach(med => {
+      // @ts-ignore
+      const cantidad = reserva.producto[conta].cantidad;
+      this.medicamentoService.getMedicamento(med).subscribe(res => {
+        const medicine: Medicamento = {...res};
+        if (medicine.id != null) {
+          // @ts-ignore
+          medicine.cantidad -= cantidad;
+          this.medicamentoService.updateMedicamento(medicine.id, medicine).subscribe(console.log);
+        }
+      });
+      conta++;
     });
     reserva.entregado = true;
   }

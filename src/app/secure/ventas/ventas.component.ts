@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faSearch, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import {Compra} from '../../integration/interfaces/compra.interface';
-import {Medicamento} from "../../integration/interfaces/medicamento.interface";
-import {MedicamentoService} from "../../integration/services/medicamento.service";
 
 
 @Component({

@@ -53,22 +53,20 @@ export class UsuariosComponent implements OnInit {
     this.user = {...user};
   }
 
-  editar(): void {
-    this.usuarios.forEach((user) => {
-      if (user.id === this.user.id) {
-        user.nombre = this.user.nombre;
-        user.paterno = this.user.paterno;
-        user.materno = this.user.materno;
-        user.email = this.user.email;
+  editar(usuario: Usuario): void {
+    this.userService.updateUser(usuario.id, usuario).subscribe(res => {
+      if (res) {
+        this.getUsers();
       }
     });
     this.inputView = false;
-    this.user = {} as Usuario;
   }
 
   eliminar(usuario: Usuario): void {
     this.userService.deleteUser(usuario).subscribe(res => {
-      this.getUsers();
+      if (res) {
+        this.getUsers();
+      }
     });
   }
 }

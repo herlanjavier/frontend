@@ -10,6 +10,7 @@ import {ReservasComponent} from './reservas/reservas.component';
 import {InventarioComponent} from './inventario/inventario.component';
 import {FormsModule} from '@angular/forms';
 import {IntegrationModule} from "../integration/integration.module";
+import { HistorialComponent } from './historial/historial.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {IntegrationModule} from "../integration/integration.module";
     UsuariosComponent,
     VentasComponent,
     ReservasComponent,
-    InventarioComponent
+    InventarioComponent,
+    HistorialComponent
   ],
     imports: [
         CommonModule,

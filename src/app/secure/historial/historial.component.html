@@ -1,0 +1,36 @@
+<article class="historial-container">
+  <section class="historial-select">
+    <select name="select" [(ngModel)]="selectedDate">
+      <option value="13" selected>Ninguno</option>
+      <option ngDefaultControl value="{{fecha.value}}"
+              *ngFor="let fecha of fechas">{{fecha.mes|titlecase}}</option>
+    </select>
+
+    <select name="factura" [(ngModel)]="selectFactura">
+      <option value="true">Factura</option>
+      <option value="false">Sin Factura</option>
+    </select>
+  </section>
+
+  <section class="historial-content">
+    <div class="history-card title">
+      <label>Medicamento</label>
+
+      <label>Cantidad</label>
+
+      <label>Costo</label>
+
+      <label>Fecha</label>
+    </div>
+
+    <div class="history-card" *ngFor="let history of historialList|fecha:selectedDate|factura:selectFactura">
+      <label>{{history.nombre_producto}}</label>
+
+      <label>{{history.cantidad}}</label>
+
+      <label>{{history.costo}} bs</label>
+
+      <label>{{history.fecha_venta|date:'medium'}}</label>
+    </div>
+  </section>
+</article>

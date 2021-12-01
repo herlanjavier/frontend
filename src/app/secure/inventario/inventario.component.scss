@@ -4,7 +4,14 @@
   .inventario-header {
     display: grid;
     grid-template-columns: repeat(4, 2fr) 1fr;
-    height: 150px;
+    place-items: center;
+    height: 120px;
+
+    .inventario-buttons {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
 
     input {
       height: 35px;
@@ -15,8 +22,54 @@
     }
 
     .btn {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .inventario-info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+
+    .ago {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFE194;
+      width: 70px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .ven {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #B61919;
+      color: #e8e8e8;
+      width: 70px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100px;
+    }
+
+    .vencido-color {
+      width: 9px;
+      height: 9px;
+      background-color: #B61919;
+    }
+
+    .agotado-color {
+      width: 9px;
+      height: 9px;
+      background-color: #FFE194;
     }
   }
 
@@ -26,7 +79,7 @@
 
     .title {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr 3fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr 3fr 1fr 1fr;
       place-items: center;
       width: 100%;
       height: 60px;
@@ -45,7 +98,7 @@
 
       .medicamento {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr 3fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr 3fr 1fr 1fr;
         place-items: center;
         width: 100%;
         height: min-content;
@@ -67,4 +120,12 @@
       }
     }
   }
+}
+
+.vencido {
+  background-color: #f67272;
+}
+
+.agotado {
+  background-color: #FFE194;
 }

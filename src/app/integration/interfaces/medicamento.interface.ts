@@ -9,7 +9,7 @@ export interface Medicamento {
   item: string;
   dosis: string;
   descripcion: string;
-  fecha_vencimiento: string;
+  fecha_vencimiento: any;
   cantidad?: number;
   cant_compra: number;
 }

@@ -23,6 +23,12 @@ export class UserService {
     return this.http.delete<any>(`http://127.0.0.1:8000/api/usuarios/${user.id}`);
   }
 
+  updateUser(id: any, body: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(
+      `http://127.0.0.1:8000/api/usuarios/${id}`, body
+    );
+  }
+
   login(user: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>('http://localhost:8000/api/usuarios/login', user);
   }

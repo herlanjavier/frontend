@@ -12,14 +12,14 @@
       <label>Opciones</label>
     </div>
 
-    <div class="medicamento" *ngFor="let medicamento of medicamentos | filter:filtro">
-      <label>{{medicamento.nombre_generico|titlecase}}</label>
+    <div class="medicamento" *ngFor="let medicamento of medicamentos|filter:filtro">
+      <label>{{ medicamento.nombre_generico | titlecase }}</label>
 
-      <label>{{medicamento.precio}}bs</label>
+      <label>{{ medicamento.precio }}bs</label>
 
-      <label>{{medicamento.descripcion | lowercase}}</label>
+      <label>{{ medicamento.descripcion | lowercase }}</label>
 
-      <input type="number" [min]="0" [(ngModel)]="medicamento.cant_compra">
+      <input type="number" [min]="0" [(ngModel)]="medicamento.cant_compra"/>
 
       <button class="btn btn-success compra-btn" (click)="addItem(medicamento)">
         <fa-icon [icon]="addIcon"></fa-icon>

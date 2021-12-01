@@ -1,28 +1,42 @@
 <article class="inventario-container">
   <section class="inventario-header">
-    <input type="text" placeholder="nombre" [(ngModel)]="medicamento.nombre">
+    <input type="text" placeholder="nombre" [(ngModel)]="medicamento.nombre_generico"/>
 
-    <input type="text" placeholder="laboratorio" [(ngModel)]="medicamento.laboratorio">
+    <input type="text" placeholder="laboratorio" [(ngModel)]="medicamento.laboratorio"/>
 
-    <input type="text" placeholder="medida" [(ngModel)]="medicamento.medida">
+    <input type="text" placeholder="medida" [(ngModel)]="medicamento.medida"/>
 
-    <input type="text" placeholder="tipo" [(ngModel)]="medicamento.tipo">
+    <input type="text" placeholder="tipo" [(ngModel)]="medicamento.tipo"/>
 
-    <button class="btn btn-warning" (click)="editData()">
-      <fa-icon [icon]="editIcon"></fa-icon>
-    </button>
+    <input type="text" placeholder="precio" [(ngModel)]="medicamento.precio"/>
 
-    <input type="text" placeholder="precio" [(ngModel)]="medicamento.precio">
+    <input type="text" placeholder="fecha de vencimiento" [(ngModel)]="medicamento.fecha_vencimiento"/>
 
-    <input type="text" placeholder="dosis" [(ngModel)]="medicamento.dosis">
+    <input type="text" placeholder="dosis" [(ngModel)]="medicamento.dosis"/>
 
-    <input type="text" placeholder="descripcion" [(ngModel)]="medicamento.descripcion">
+    <input type="text" placeholder="descripcion" [(ngModel)]="medicamento.descripcion"/>
 
-    <input type="number" placeholder="cantidad" [(ngModel)]="medicamento.cantidad">
+    <input type="number" placeholder="cantidad" [(ngModel)]="medicamento.cantidad"/>
 
-    <button class="btn btn-danger" (click)="delData()">
-      <fa-icon [icon]="delIcon"></fa-icon>
-    </button>
+    <div class="inventario-buttons">
+      <button class="btn btn-success" (click)="createData()">
+        <fa-icon [icon]="createIcon"></fa-icon>
+      </button>
+
+      <button class="btn btn-warning" (click)="editData()">
+        <fa-icon [icon]="editIcon"></fa-icon>
+      </button>
+
+      <button class="btn btn-danger" (click)="delData()">
+        <fa-icon [icon]="delIcon"></fa-icon>
+      </button>
+    </div>
+  </section>
+
+  <section class="inventario-info">
+    <div><small class="ago">agotado</small><div class="agotado-color"></div></div>
+
+    <div><small class="ven">vencido</small><div class="vencido-color"></div></div>
   </section>
 
   <section class="inventario-body">
@@ -42,25 +56,29 @@
       <label>Descripcion</label>
 
       <label>Cantidad</label>
+
+      <label>F. Vencimiento</label>
     </div>
 
     <section class="content">
-      <div class="medicamento" *ngFor="let medicamento of medicamentos" (click)="fillData(medicamento)">
-        <label>{{medicamento.nombre_generico}}</label>
+      <div class="medicamento {{alerta(medicamento)}}" *ngFor="let medicamento of medicamentos" (click)="fillData(medicamento)">
+        <label>{{ medicamento.nombre_generico }}</label>
 
-        <label>{{medicamento.laboratorio}}</label>
+        <label>{{ medicamento.laboratorio }}</label>
 
-        <label>{{medicamento.medida}}</label>
+        <label>{{ medicamento.medida }}</label>
 
-        <label>{{medicamento.tipo|titlecase}}</label>
+        <label>{{ medicamento.tipo | titlecase }}</label>
 
-        <label>{{medicamento.precio}}</label>
+        <label>{{ medicamento.precio }}</label>
 
-        <label>{{medicamento.dosis}}</label>
+        <label>{{ medicamento.dosis }}</label>
 
-        <label>{{medicamento.descripcion|lowercase}}</label>
+        <label>{{ medicamento.descripcion | lowercase }}</label>
 
-        <label>{{medicamento.cantidad}}</label>
+        <label>{{ medicamento.cantidad }}</label>
+
+        <label>{{ medicamento.fecha_vencimiento | date: 'shortDate' }}</label>
       </div>
     </section>
   </section>

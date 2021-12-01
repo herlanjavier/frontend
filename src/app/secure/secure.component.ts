@@ -1,5 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {faChevronLeft, faDollyFlatbed, faShoppingCart, faStore, faUser} from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faDollyFlatbed,
+  faHistory,
+  faShoppingCart,
+  faStore,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-secure',
@@ -11,6 +18,7 @@ export class SecureComponent implements OnInit {
   public iconUser = faUser;
   public iconReserva = faShoppingCart;
   public iconInventario = faDollyFlatbed;
+  public iconHistorial = faHistory;
   public iconBack = faChevronLeft;
   public nombre = sessionStorage.getItem('serviUser');
 

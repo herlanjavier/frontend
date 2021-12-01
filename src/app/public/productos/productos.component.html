@@ -7,7 +7,7 @@
     <input type="text" [(ngModel)]="item" name="item"/>
 
     <button class="btn btn-warning" (click)="comprar()">
-      <label class="cantidad" ngDefaultControl [(ngModel)]="cantidad">{{cantidad}}</label>
+      <label class="cantidad" ngDefaultControl [(ngModel)]="cantidad">{{ cantidad }}</label>
 
       <fa-icon [icon]="shopIcon"></fa-icon>
     </button>
@@ -23,7 +23,6 @@
       <label>Laboratorio: {{ medicamento.laboratorio }}</label>
     </section>
   </article>
-
 </main>
 
 <app-shop [buyItems]="buyItems" *ngIf="comprarSW"></app-shop>
