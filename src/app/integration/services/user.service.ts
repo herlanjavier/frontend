@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Usuario} from '../interfaces/usuario.interface';
+import {environment} from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -12,24 +13,24 @@ export class UserService {
 
   createUser(user: Usuario): Observable<any> {
     user.password = user.nombre + user.paterno;
-    return this.http.post<any>('http://127.0.0.1:8000/api/usuarios', user);
+    return this.http.post<any>(`${environment.backURL}/usuarios`, user);
   }
 
   getUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>('http://127.0.0.1:8000/api/usuarios');
+    return this.http.get<Usuario[]>(`${environment.backURL}/usuarios`);
   }
 
   deleteUser(user: Usuario): Observable<any> {
-    return this.http.delete<any>(`http://127.0.0.1:8000/api/usuarios/${user.id}`);
+    return this.http.delete<any>(`${environment.backURL}/usuarios/${user.id}`);
   }
 
   updateUser(id: any, body: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(
-      `http://127.0.0.1:8000/api/usuarios/${id}`, body
+      `${environment.backURL}/usuarios/${id}`, body
     );
   }
 
   login(user: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>('http://localhost:8000/api/usuarios/login', user);
+    return this.http.post<Usuario>(`${environment.backURL}/usuarios/login`, user);
   }
 }
