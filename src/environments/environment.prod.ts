@@ -4,5 +4,5 @@ export const environment = {
   dialogflow: {
     chatBot: '',
   },
-  backURL: ' https://7464-2800-cd0-2a1c-2000-8077-843e-ecd7-a2fc.ngrok.io/api'
+  backURL: 'https://7464-2800-cd0-2a1c-2000-8077-843e-ecd7-a2fc.ngrok.io/api'
 };
