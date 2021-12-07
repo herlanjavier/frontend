@@ -6,14 +6,14 @@
   width: 100%;
   height: 100%;
 
-  .historial-select{
+  .historial-select {
     display: flex;
     width: 90%;
     justify-content: flex-end;
     align-items: center;
     height: 70px;
 
-    select{
+    select {
       border: 1px solid #2C394B;
       border-radius: 5px;
       height: 40px;
@@ -43,5 +43,10 @@
       font-weight: bold;
     }
   }
+}
 
+@media screen and (max-width: 800px) {
+  .historial-container {
+    font-size: .6em !important;
+  }
 }

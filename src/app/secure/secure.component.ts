@@ -26,6 +26,10 @@ export class SecureComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      // @ts-ignore
+      document.getElementById('kommunicate-widget-iframe').style.display = 'none';
+    }, 4000);
   }
 
   exit(): void {

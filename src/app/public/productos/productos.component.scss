@@ -76,3 +76,32 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .productos-container {
+    grid-template-columns: repeat(2, 42vw);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .productos-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .products-header {
+    label {
+      font-size: .9em !important;
+    }
+
+    input {
+      width: 90px !important;
+      height: 30px !important;
+    }
+
+    button {
+      height: 30px !important;
+      width: 25px;
+      font-size: .6em !important;
+    }
+  }
+}

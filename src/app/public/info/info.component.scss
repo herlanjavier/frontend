@@ -79,7 +79,7 @@
     height: 70%;
     border-radius: 10px;
 
-    .text{
+    .text {
       margin-right: 10px;
       background: #00acee;
       border-radius: 5px;
@@ -97,5 +97,13 @@
       height: 30px;
       padding-left: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .info-content {
+    overflow-y: auto;
+    height: 80vh;
+    grid-template-columns: 1fr;
   }
 }

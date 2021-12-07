@@ -45,3 +45,14 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .medicamentos-content {
+    width: 80vw !important;
+  }
+  .medicamento, .medicamento-title {
+    label {
+      font-size: .6em !important;
+    }
+  }
+}

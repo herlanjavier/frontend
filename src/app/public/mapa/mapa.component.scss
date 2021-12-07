@@ -18,12 +18,26 @@
   }
 }
 
-
 @keyframes fade-in {
   from {
     opacity: 0.4;
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .location-content {
+    overflow-x: auto;
+
+    img {
+      display: none;
+    }
+
+    div {
+      width: 800px !important;
+    }
+
   }
 }

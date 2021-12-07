@@ -94,5 +94,17 @@
   to {
     top: 0;
   }
+}
 
+@media screen and (max-width: 800px) {
+  .user-container {
+    width: calc(100% - 90px);
+    height: 100vh;
+  }
+  .userAction {
+    overflow-x: auto;
+  }
+  .user-data {
+    overflow-x: auto;
+  }
 }

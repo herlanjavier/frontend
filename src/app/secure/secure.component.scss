@@ -27,7 +27,7 @@
       cursor: auto;
       margin-bottom: 30px;
 
-      .exit{
+      .exit {
         cursor: pointer;
         color: #B61919;
       }
@@ -70,4 +70,23 @@
   }
 }
 
+.disabled {
+  display: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .secure-menu {
+    min-width: 90px !important;
+
+    button {
+      label {
+        display: none !important;
+      }
+    }
+
+    label {
+      display: none;
+    }
+  }
+}
 
