@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   initChatBot(): void {
     ((d, m) => {
       const kommunicateSettings = {
-        appId: '13d8ccb7236e9a8db89dee87f3c53b0e9',
+        appId: 'fcd938b68b533784633359055626822e',
         popupWidget: true,
         automaticChatOpenOnNavigation: true,
       };
